@@ -6,7 +6,7 @@ var jsforceAPIVersion = '36.0';
 var myconn;
 var finalresult = [];
 var editor;
-var homeurl ='/FX_Resourse_Editor/test.htm';
+var homeurl ='/';
 
 //IE support
 if (!String.prototype.startsWith)
