@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FX_Resourse_Editor Test</title>
+</head>
+    <body>
+
+    <div id="MainContent"></div>
+    
+    <script>
+
+        var set_sessionid =  getParameterByName('sid');
+        var set_loginurl =  getParameterByName('lurl');
+        var set_username =  getParameterByName('luser');
+        var set_pass =  getParameterByName('lpass');
+        var set_purl =  getParameterByName('purl');
+        loadjscssfile('FX_Resourse_Editor.js','js');
+       
+
+        function loadjscssfile(filename,filetype,callback)
+        {
+            var head=document.getElementsByTagName("head")[0];
+            if (filetype=="js")
+            {
+                
+                var script=document.createElement('script');
+                script.src=filename;
+                script.type='text/javascript';
+                //real browsers
+                script.onload=callback;
+                //Internet explorer
+                script.onreadystatechange = function() 
+                {
+                    if (this.readyState == 'complete') 
+                    {
+                        callback(null);
+                    }
+                }
+                head.appendChild(script);
+            }
+            else if (filetype=="css")
+            {
+                var fileref=document.createElement("link");
+                fileref.setAttribute("rel", "stylesheet");
+                fileref.setAttribute("type", "text/css");
+                fileref.setAttribute("href", filename);
+                head.appendChild(fileref);
+                callback(null);
+            }
+        }
+
+        function getParameterByName(name) 
+        {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        </script>
+
+        
+    </body>
+</html>
