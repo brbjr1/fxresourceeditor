@@ -370,7 +370,7 @@ j$(document).ready(function()
 										else
 										{
 											j$('#userdetail').html((myuserdetails.Name + ' AT '+ OrgResults[0].Name +' ON API ' + jsforceAPIVersion).toUpperCase() );
-											j$('#username').html('UserName: ' + myuserdetails.Username);
+											j$('#username').html('Username: ' + myuserdetails.Username);
 		        							j$('#loginDetails').show();
 		        							myconn.identity(function(err, res) 
 											{
