@@ -28,12 +28,13 @@ app.all('*', ensureSecure); // at top of routing calls
 app.all('/proxy/?*', jsforceAjaxProxy({ enableCORS: true }));
 
 
-function ensureSecure(req, res, next){
-  if(req.secure){
-    // OK, continue
-    return next();
+function ensureSecure(req, res, next)
+{
+  if (req.headers['x-forwarded-proto'] !== 'https') 
+  {
+    res.redirect('https://'+req.host+req.url);
   };
-  res.redirect('https://'+req.host+req.url); // handle port numbers if you need non defaults
+  return next();
 };
 
 /*
