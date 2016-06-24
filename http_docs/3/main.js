@@ -337,7 +337,7 @@ j$(document).ready(function()
 					}
 					else
 					{
-						myconnoptions.proxyUrl = 'https://fxresourceeditor.herokuapp.com//proxy';
+						myconnoptions.proxyUrl = 'https://fxresourceeditor.herokuapp.com/proxy';
 					}
 
 					myconn = new jsforce.Connection(myconnoptions);
@@ -610,7 +610,7 @@ j$(document).ready(function()
 		}
 		else
 		{
-			oauth2Options.proxyUrl = 'https://fxresourceeditor.herokuapp.com//proxy';
+			oauth2Options.proxyUrl = 'https://fxresourceeditor.herokuapp.com/proxy';
 		}
 		var myloginUrl;
 		if (state2)
