@@ -1,7 +1,8 @@
 var validversions = [];
 validversions.push('1');
 validversions.push('2');
-var myversion ='2'; //update to latest to change version
+validversions.push('3');
+var myversion ='3'; //update to latest to change version
 var mysessionId = '';
 
 
@@ -24,7 +25,7 @@ var myproxyUrl = ''; //https://localhost:8443/proxy
 
 
 var myuserid = '';
-var mycdnurl = 'https://rawgit.com/brbjr1/cdn/master/FX_Resourse_Editor';
+var mycdnurl = 'https://fxresourceeditor.herokuapp.com/';
 
 
 //IE support
