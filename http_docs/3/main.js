@@ -6,7 +6,7 @@ var jsforceAPIVersion = '36.0';
 var myconn;
 var finalresult = [];
 var editor;
-var homeurl ='/';
+
 
 //IE support
 if (!String.prototype.startsWith)
@@ -290,8 +290,8 @@ var currentSelected;
 
 j$(document).ready(function()
 {
-    var mycode = getParameterName('code',document.location.search);
-    var mystate = getParameterName('state',document.location.search);
+    var mycode = getParameterName('code');
+    var mystate = getParameterName('state');
     if (mycode && mystate)
     {
     	j$("#MainDetail").LoadingOverlay("show",{image : "",fontawesome : fontawesomeloadIcon});
@@ -330,15 +330,17 @@ j$(document).ready(function()
 					  serverUrl : conn.instanceUrl,
 					};
 
-					var proxyurl = getParameterName('purl',document.location.search);
+					//var proxyurl = getParameterName('purl',document.location.search);
 					if (proxyurl)
 					{
 						myconnoptions.proxyUrl = proxyurl;
 					}
+					/*
 					else
 					{
 						myconnoptions.proxyUrl = 'https://fxresourceeditor.herokuapp.com/proxy';
 					}
+					*/
 
 					myconn = new jsforce.Connection(myconnoptions);
 
@@ -368,6 +370,7 @@ j$(document).ready(function()
 										else
 										{
 											j$('#userdetail').html((myuserdetails.Name + ' AT '+ OrgResults[0].Name +' ON API ' + jsforceAPIVersion).toUpperCase() );
+											j$('#username').html('UserName: ' + myuserdetails.Username);
 		        							j$('#loginDetails').show();
 		        							myconn.identity(function(err, res) 
 											{
@@ -584,11 +587,11 @@ j$(document).ready(function()
 
 /******************Support Functions *************************************/
 
-	function getParameterName(name,loc) 
+	function getParameterName(name) 
 	{
 	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-	        results = regex.exec(loc);
+	        results = regex.exec(location.search);
 	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 
@@ -596,22 +599,16 @@ j$(document).ready(function()
 	{
 		var oauth2Options = 
 		{
-		    clientId: '3MVG9xOCXq4ID1uEUdmtqOVR2qv7cJ9kiRrlXA3pGbBJklG_lYrhdalyWQflXDiDRWb0IPLfYiAz7xN.lhOfq',
-		    clientSecret: '3676781568829065227',
-		    redirectUri: 'https://fxresourceeditor.herokuapp.com/'
+		    clientId: clientId,
+		    clientSecret: clientSecret,
+		    redirectUri: redirectUri
 		};
 
-		
-
-		var proxyurl = getParameterName('purl',document.location.search);
 		if (proxyurl)
 		{
 			oauth2Options.proxyUrl = proxyurl;
 		}
-		else
-		{
-			oauth2Options.proxyUrl = 'https://fxresourceeditor.herokuapp.com/proxy';
-		}
+		
 		var myloginUrl;
 		if (state2)
 		{

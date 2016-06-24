@@ -10,20 +10,19 @@
     
     <script>
 
-        var homeurl ='/';
+        var homeurl ='/test.html';
 
-        var clientId = '3MVG9xOCXq4ID1uEUdmtqOVR2qv7cJ9kiRrlXA3pGbBJklG_lYrhdalyWQflXDiDRWb0IPLfYiAz7xN.lhOfq';
-        var clientSecret = '3676781568829065227';
-        var redirectUri = 'https://fxresourceeditor.herokuapp.com/';
+        var clientId = '3MVG9xOCXq4ID1uEUdmtqOVR2qsFL_hecsuzr9_Gvi4SKtRoF5T6i0clI4xccz2s8BJjbODFlWHiG9kQteRNj';
+        var clientSecret = '8074982833183021262';
+        var redirectUri = 'https://localhost:8443/test.html';
 
         var proxyurl =  getParameterByName('purl');
         if (!proxyurl)
         {
-            proxyurl = 'https://fxresourceeditor.herokuapp.com/proxy';
+            proxyurl = 'https://localhost:8443/proxy';
         }
 
-
-        loadjscssfile('FX_Resourse_Editor.js','js');
+        loadjscssfile('FX_Resourse_Editor.js?cdnurl=https://localhost:8443','js');
        
 
         function loadjscssfile(filename,filetype,callback)

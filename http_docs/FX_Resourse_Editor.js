@@ -3,18 +3,19 @@ validversions.push('1');
 validversions.push('2');
 validversions.push('3');
 var myversion ='3'; //update to latest to change version
-var mysessionId = '';
+//var mysessionId = '';
 
 
 
 
 
 /***Used for local dev :never will be used in prod ***/
-var myloginurl = '';
+/*var myloginurl = '';
 var myusername = '';
 var mypassword = '';
 var myserverUrl = ''; //not used any more
 var myproxyUrl = ''; //https://localhost:8443/proxy
+*/
 /*****************************************************************************************/
 
 
@@ -73,13 +74,14 @@ if (myscripturl != '')
 		mycdnurl = scrcdn;
 		console.log('using custom cdnurl:' + mycdnurl);
 	}
-	
+	/*
 	mysessionId = getScriptParameterByName('sessionid',myscripturl);
 	myloginurl = getScriptParameterByName('lurl',myscripturl);
 	myusername = getScriptParameterByName('luser',myscripturl);
 	mypassword = getScriptParameterByName('lpass',myscripturl);
 	myuserid = getScriptParameterByName('myuserid',myscripturl); 
 	myproxyUrl = getScriptParameterByName('purl',myscripturl); 
+	*/
 }
 
 mycdnurl = mycdnurl + '/'+myversion+'/';
