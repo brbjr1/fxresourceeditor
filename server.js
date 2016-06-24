@@ -11,11 +11,6 @@ var options = {
     maxAge: -1
 };
 
-if (1 == 2)
-{
-	options.key = fs.readFileSync('./ca.key');
-    options.cert =  fs.readFileSync('./ca.crt');
-}
 
 var app = express();
 
@@ -28,7 +23,18 @@ app.configure('development', function ()
   app.use(express.errorHandler());
 });
 
+app.all('*', ensureSecure); // at top of routing calls
+
 app.all('/proxy/?*', jsforceAjaxProxy({ enableCORS: true }));
+
+
+function ensureSecure(req, res, next){
+  if(req.secure){
+    // OK, continue
+    return next();
+  };
+  res.redirect('https://'+req.host+req.url); // handle port numbers if you need non defaults
+};
 
 /*
 app.get('/', function(req, res) {
