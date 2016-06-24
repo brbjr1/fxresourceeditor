@@ -2,7 +2,8 @@ var validversions = [];
 validversions.push('1');
 validversions.push('2');
 validversions.push('3');
-var myversion ='3'; //update to latest to change version
+validversions.push('4');
+var myversion ='4'; //update to latest to change version
 //var mysessionId = '';
 
 
