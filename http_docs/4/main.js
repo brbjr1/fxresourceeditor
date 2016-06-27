@@ -294,6 +294,30 @@ if (!String.prototype.endsWith) {
 		}
 	}
 
+	j$(window).resize(function()
+	{
+		UpdateEditorsMaxHeight();
+	});
+
+	function UpdateEditorsMaxHeight()
+	{
+		
+		var windowsheight = j$(window).height();
+		var navheight = j$('#loginDetails').outerHeight(true);
+		//var closebuttonHeight = j$('#CloseButton').outerHeight(true);
+		if (isNaN(windowsheight) || isNaN(navheight) ) 
+		{
+		    alert("something is wrong, cant set height!");
+		} 
+		else 
+		{
+		   var maxdocheight = windowsheight - navheight - 60;
+		   j$('#texteditor').css('height', maxdocheight);
+		   j$('#jsoneditor').css('height', maxdocheight);
+		}
+	
+	}
+
 
 /******************END Event Handlers *************************************/
 
@@ -477,6 +501,8 @@ j$(document).ready(function()
 																								RemoteResult = finalresult;
 																								j$("#MainDetail").LoadingOverlay("hide");
 																								j$("#mainContent").html(presult);
+
+																								UpdateEditorsMaxHeight();
 
 																								//var button = $("#buttonId");
 																								j$("#texteditor").on('input',function(e)
