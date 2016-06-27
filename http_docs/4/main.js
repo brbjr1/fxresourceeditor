@@ -325,8 +325,6 @@ j$(document).ready(function()
 	        	{ 
 	        		ProcessError(err);
 	        		window.location.replace(homeurl);
-	        		j$("#MainDetail").LoadingOverlay("hide");
-	        		j$('#logindiv').show();
 	        	}
 	        	else
 	        	{
@@ -351,12 +349,14 @@ j$(document).ready(function()
 							if (err)
 							{
 								ProcessError(err);
+								window.location.replace(homeurl);
 							}
 							else
 							{
 								if (hasaccessresult == false)
 								{
 									ProcessError('Error: You must have permission Modify All Data to use this page!');
+									window.location.replace(homeurl);
 								}
 								else
 								{
