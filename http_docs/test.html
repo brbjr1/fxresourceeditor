@@ -5,7 +5,7 @@
     <title>FX Resource Editor Test</title>
 </head>
     <body>
-
+    state=Production/Sandbox   Url for Soap Login:https://localhost:8443/test.html?luser=xxx&lpass=xxx&state=Sandbox
     <div id="MainContent"></div>
     
     <script>
@@ -16,13 +16,18 @@
         var clientSecret = '8074982833183021262';
         var redirectUri = 'https://localhost:8443/test.html';
 
+
+        var set_username =  getParameterByName('luser');
+        var set_pass =  getParameterByName('lpass');
+
+
         var proxyurl =  getParameterByName('purl');
         if (!proxyurl)
         {
             proxyurl = 'https://localhost:8443/proxy';
         }
 
-        loadjscssfile('FX_Resourse_Editor.js?cdnurl=https://localhost:8443','js');
+        loadjscssfile('FX_Resourse_Editor.js?cdnurl=https://localhost:8443&luser=' + set_username + '&lpass=' + set_pass,'js');
        
 
         function loadjscssfile(filename,filetype,callback)
