@@ -47,11 +47,11 @@ function ensureSecure(req, res, next){
   res.redirect('https://localhost:' + app.get('port')); // handle port numbers if you need non defaults
 };
 
-
+/*
 http.createServer(app).listen(80, function () {
   console.log("Express server listening on port 80");
 });
-
+*/
 
 
 var server = https.createServer(options, app).listen(app.get('port'), function(){
