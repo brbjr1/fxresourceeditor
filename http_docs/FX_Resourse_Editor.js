@@ -6,7 +6,8 @@ validversions.push('4');
 validversions.push('5');
 validversions.push('6');
 validversions.push('7');
-var myversion ='7'; //update to latest to change version
+validversions.push('8');
+var myversion ='8'; //update to latest to change version
 
 
 
