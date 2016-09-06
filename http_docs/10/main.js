@@ -290,6 +290,13 @@ if (!String.prototype.endsWith) {
 			{
 				sourcetxt = editor.getText();
 				var jsondata = sourcetxt;
+				try {
+					jsondata = JSON.stringify(JSON.parse(sourcetxt), null, 2);
+				}
+				catch (err) {
+					console.log('Error parsing JSON data', err.message, err);
+				}
+
 				if (currentSelectedName == 'FX_Mobile_Filters' )
 				{
 					jsondata = 'window.FX_Mobile_Filters =' + jsondata
